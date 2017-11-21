@@ -14,14 +14,14 @@ deploy:
     bucket: $S3_BUCKET
     skip_cleanup: true
     on:
-      branch: develop
+      branch: master
       # TODO add a condition to make sure the bucket exists using `aws s3 ls`
-  - provider: npm
-    email: "maps@phila.gov"
-    api_key: $NPM_AUTH_TOKEN
-    skip_cleanup: true
-    on:
-      tags: true
+  # - provider: npm
+  #   email: "maps@phila.gov"
+  #   api_key: $NPM_AUTH_TOKEN
+  #   skip_cleanup: true
+  #   on:
+  #     tags: true
 env:
   # REVIEW move these into travis in-app config so repo is more forkable?
   global:

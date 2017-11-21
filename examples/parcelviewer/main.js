@@ -1113,80 +1113,80 @@ Mapboard.default({
     //     }
     //   },
     // },
-    {
-      key: 'condos',
-      icon: 'building',
-      label: 'Condominiums',
-      dataSources: ['condoList'],
-      onlyShowTopicIfDataExists: {
-        'condoList': {
-          pathToDataArray: ['features'],
-          minDataLength: 2,
-        }
-      },
-      components: [
-        {
-          type: 'callout',
-          slots: {
-            text: 'Condominium units at your search address, as recorded for property assessment purposes. Click one of the addresses below to see information for that unit.  Use the back button to return to this list. Source: Office of Property Assessment'
-          }
-        },
-        {
-          type: 'horizontal-table',
-          options: {
-            topicKey: 'condos',
-            id: 'condoList',
-            useApiCount: true,
-            defaultIncrement: 25,
-            fields: [
-              {
-                label: 'OPA Account',
-                value: function(state, item) {
-                  var url = window.location.origin + window.location.pathname + '#/' + item.properties.opa_account_num + '/opa'
-                  return "<a href="+url+">"+item.properties.opa_account_num+" <i class='fa fa-external-link'></i></a>";
-                  // console.log('value function item:', item, 'controller:', controller);
-                  // return "<a onclick='" + controller + "'>"+item.properties.opa_account_num+"</a>"
-                },
-              },
-              {
-                label: 'Address',
-                value: function(state, item) {
-                  var url = window.location.origin + window.location.pathname + '#/' + item.properties.opa_account_num + '/opa'
-                  return "<a href="+url+">"+item.properties.street_address+" <i class='fa fa-external-link'></i></a>";
-                },
-              },
-            ], // end fields
-            // sort: {
-            //   // this should return the val to sort on
-            //   getValue: function(item) {
-            //     // return item.attributes.RECORDING_DATE;
-            //     return item.attributes.DOCUMENT_DATE;
-            //   },
-            //   // asc or desc
-            //   order: 'desc'
-            // }
-          },
-          slots: {
-            title: 'Condominiums',
-            highestPageRetrieved: function(state) { return state.sources['condoList'].data.page },
-            pageCount: function(state) { return state.sources['condoList'].data.page_count },
-            totalSize: function(state) { return state.sources['condoList'].data.total_size },
-            items: function(state) {
-              var data = state.sources['condoList'].data.features;
-              var rows = data.map(function(row){
-                var itemRow = row;
-                return itemRow;
-              });
-              return rows;
-            },
-          } // end slots
-        },
-      ],
-      basemap: 'pwd',
-      identifyFeature: 'address-marker',
-      // we might not need this anymore, now that we have identifyFeature
-      parcels: 'pwd'
-    },
+    // {
+    //   key: 'condos',
+    //   icon: 'building',
+    //   label: 'Condominiums',
+    //   dataSources: ['condoList'],
+    //   onlyShowTopicIfDataExists: {
+    //     'condoList': {
+    //       pathToDataArray: ['features'],
+    //       minDataLength: 2,
+    //     }
+    //   },
+    //   components: [
+    //     {
+    //       type: 'callout',
+    //       slots: {
+    //         text: 'Condominium units at your search address, as recorded for property assessment purposes. Click one of the addresses below to see information for that unit.  Use the back button to return to this list. Source: Office of Property Assessment'
+    //       }
+    //     },
+    //     {
+    //       type: 'horizontal-table',
+    //       options: {
+    //         topicKey: 'condos',
+    //         id: 'condoList',
+    //         useApiCount: true,
+    //         defaultIncrement: 25,
+    //         fields: [
+    //           {
+    //             label: 'OPA Account',
+    //             value: function(state, item) {
+    //               var url = window.location.origin + window.location.pathname + '#/' + item.properties.opa_account_num + '/opa'
+    //               return "<a href="+url+">"+item.properties.opa_account_num+" <i class='fa fa-external-link'></i></a>";
+    //               // console.log('value function item:', item, 'controller:', controller);
+    //               // return "<a onclick='" + controller + "'>"+item.properties.opa_account_num+"</a>"
+    //             },
+    //           },
+    //           {
+    //             label: 'Address',
+    //             value: function(state, item) {
+    //               var url = window.location.origin + window.location.pathname + '#/' + item.properties.opa_account_num + '/opa'
+    //               return "<a href="+url+">"+item.properties.street_address+" <i class='fa fa-external-link'></i></a>";
+    //             },
+    //           },
+    //         ], // end fields
+    //         // sort: {
+    //         //   // this should return the val to sort on
+    //         //   getValue: function(item) {
+    //         //     // return item.attributes.RECORDING_DATE;
+    //         //     return item.attributes.DOCUMENT_DATE;
+    //         //   },
+    //         //   // asc or desc
+    //         //   order: 'desc'
+    //         // }
+    //       },
+    //       slots: {
+    //         title: 'Condominiums',
+    //         highestPageRetrieved: function(state) { return state.sources['condoList'].data.page },
+    //         pageCount: function(state) { return state.sources['condoList'].data.page_count },
+    //         totalSize: function(state) { return state.sources['condoList'].data.total_size },
+    //         items: function(state) {
+    //           var data = state.sources['condoList'].data.features;
+    //           var rows = data.map(function(row){
+    //             var itemRow = row;
+    //             return itemRow;
+    //           });
+    //           return rows;
+    //         },
+    //       } // end slots
+    //     },
+    //   ],
+    //   basemap: 'pwd',
+    //   identifyFeature: 'address-marker',
+    //   // we might not need this anymore, now that we have identifyFeature
+    //   parcels: 'pwd'
+    // },
     {
       key: 'deeds',
       icon: 'book',
