@@ -874,14 +874,11 @@ Mapboard.default({
   },
   greeting:{
     initialMessage: '\
-      <h2>Atlas is your front door to the City of Philadelphia.</h2>\
-      <p>Here are some things you can do with Atlas:</p>\
+      <h2>Atlas DOR is your front door to the City of Philadelphia.</h2>\
+      <p>Here are some things you can do with Atlas DOR:</p>\
       <div class="callout">\
         <ul>\
-          <li>Get the history of permits, licenses, and inspections at any address</li>\
-          <li>Research real estate information including property values, zoning, and document archives</li>\
-          <li>Get easy access to a variety of hard-to-find City resources</li>\
-          <li>View recent activity around your address, such as crimes, 311 service requests, and more</li>\
+          <li>Research real estate information including document archives</li>\
           <li>Explore historical imagery and maps</li>\
         </ul>\
       </div>\

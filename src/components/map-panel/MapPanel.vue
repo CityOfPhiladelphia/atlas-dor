@@ -93,8 +93,8 @@
       <svg-marker v-if="this.cyclomediaActive" />
 
       <!-- geojson features -->
+      <!-- v-if="shouldShowGeojson(geojsonFeature.key)" -->
       <geojson v-for="geojsonFeature in geojsonFeatures"
-               v-if="shouldShowGeojson(geojsonFeature.key)"
                :geojson="geojsonFeature.geojson"
                :color="geojsonFeature.color"
                :weight="2"
