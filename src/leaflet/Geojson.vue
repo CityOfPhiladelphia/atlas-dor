@@ -8,8 +8,21 @@
       'geojson',
       'color',
       'weight',
+      'delay'
     ],
+    watch: {
+      color(nextColor) {
+        console.log('nextColor:', nextColor);
+        if (this.$props.delay) {
+          setTimeout(this.refresh, 50);
+        } else {
+          this.refresh();
+        }
+
+      }
+    },
     mounted() {
+      console.log('mounting geojson:', this.$props.geojson.id);
       const leafletElement = this.$leafletElement = this.createLeafletElement();
       const map = this.$store.state.map.map;
       // REVIEW kind of hacky/not reactive?
@@ -18,12 +31,16 @@
       }
     },
     destroyed() {
+      console.log('destroying geojson:', this.$props.geojson.id);
       this.$leafletElement._map.removeLayer(this.$leafletElement);
     },
     // we don't actually render anything, but need to define either a template
     // or a render function
     render(h) {
       return;
+    },
+    computed() {
+
     },
     methods: {
       createLeafletElement() {
@@ -41,6 +58,15 @@
       parentMounted(parent) {
         const map = parent.$leafletElement;
         this.$leafletElement.addTo(map);
+      },
+      refresh() {
+        this.$leafletElement._map.removeLayer(this.$leafletElement);
+        const leafletElement = this.$leafletElement = this.createLeafletElement();
+        const map = this.$store.state.map.map;
+        // REVIEW kind of hacky/not reactive?
+        if (map) {
+          leafletElement.addTo(map);
+        }
       }
     }
   };

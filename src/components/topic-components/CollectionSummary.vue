@@ -1,9 +1,18 @@
 <!-- A natural-language summary of a collection of things. -->
 
 <template>
-  <h3>
-    {{ summary }}
-  </h3>
+  <div>
+    <h3 class="parcel-summary">
+      {{ summary }}
+    </h3>
+    <a href="#/"
+       class="button"
+       @click="toggleParcelOverlap"
+       v-if="this.itemCount > 1"
+    >
+      {{ toggleButtonText }}
+    </a>
+  </div>
 </template>
 
 <script>
@@ -12,6 +21,16 @@
   export default {
     mixins: [TopicComponent],
     computed: {
+      overlapParcels() {
+        return this.$store.state.map.overlapParcels;
+      },
+      toggleButtonText() {
+        if (this.overlapParcels === true) {
+          return "Show Selected Parcel Only"
+        } else {
+          return "Show All Parcels"
+        }
+      },
       // the final stringified output
       summary() {
         // get value quantity map
@@ -77,8 +96,16 @@
 
         return valueQuantities;
       },
+      itemCount() {
+        const items = this.slots.items(this.$store.state);
+        return items.length;
+      }
     },
     methods: {
+      toggleParcelOverlap() {
+        console.log('toggleParcelOverlap is running', !this.overlapParcels);
+        this.$store.commit('setOverlapParcels', !this.overlapParcels);
+      },
       // takes the value of the valueQuantities computed property and returns
       // the appropriate grammatical number.
       isPlural(valueQuantities = {}) {
@@ -139,4 +166,17 @@
 
 <style scoped>
 
+  .parcel-summary {
+    display: inline-block;
+  }
+
+  .parcel-toggle-button {
+    display: inline-block;
+  }
+
+  a:visited {
+    background-color: #25cef7;
+    color: #444;
+
+  }
 </style>
