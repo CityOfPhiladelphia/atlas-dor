@@ -144,7 +144,7 @@ export default {
           const key = geojson.properties.OBJECTID;
           let color;
           let weight;
-          if(this.overlapParcels === true && key === this.activeDorParcel) {
+          if(this.overlapParcelsActivated === true && key === this.activeDorParcel) {
             color = '#25cef7';
             weight = 4;
           } else {

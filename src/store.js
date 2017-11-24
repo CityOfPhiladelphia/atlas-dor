@@ -188,7 +188,7 @@ function createStore(config) {
       imageOverlayOpacity: null,
       filters: [],
       watchPositionOn: false,
-      overlapParcels: false,
+      overlapParcelsActivated: false,
       // features: {
       //   markers: [
       //     // {
@@ -281,8 +281,8 @@ function createStore(config) {
       }
     },
     mutations: {
-      setOverlapParcels(state, payload) {
-        state.map.overlapParcels = payload;
+      setOverlapParcelsActivated(state, payload) {
+        state.map.overlapParcelsActivated = payload;
       },
       setIsMobileOrTablet(state, payload) {
         state.is_mobile_or_tablet = payload;

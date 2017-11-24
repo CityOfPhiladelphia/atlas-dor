@@ -474,8 +474,8 @@
       isGeocoding() {
         return this.$store.state.geocode.status === 'waiting';
       },
-      overlapParcels() {
-        return this.$store.state.map.overlapParcels;
+      overlapParcelsActivated() {
+        return this.$store.state.map.overlapParcelsActivated;
       }
     },
     watch: {
@@ -490,7 +490,7 @@
         return this.$config.map.basemaps[basemap] || {};
       },
       shouldShowGeojson(key) {
-        if (this.activeTopicConfig.basemap === 'pwd' || (this.overlapParcels === true && key !== this.activeDorParcel)) {
+        if (this.activeTopicConfig.basemap === 'pwd' || (this.overlapParcelsActivated === true && key !== this.activeDorParcel)) {
           return true;
         } // else {
         //   return key === this.activeDorParcel;

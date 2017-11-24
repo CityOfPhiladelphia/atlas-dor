@@ -8,7 +8,7 @@
     <a href="#/"
        class="button"
        @click="toggleParcelOverlap"
-       v-if="this.itemCount > 1"
+       v-if="this.overlapParcelsEnabled === true && this.itemCount > 1"
     >
       {{ toggleButtonText }}
     </a>
@@ -21,11 +21,18 @@
   export default {
     mixins: [TopicComponent],
     computed: {
-      overlapParcels() {
-        return this.$store.state.map.overlapParcels;
+      overlapParcelsEnabled() {
+        if (this.$config.overlapParcelsEnabled) {
+          return this.$config.overlapParcelsEnabled;
+        } else {
+          return false;
+        }
+      },
+      overlapParcelsActivated() {
+        return this.$store.state.map.overlapParcelsActivated;
       },
       toggleButtonText() {
-        if (this.overlapParcels === true) {
+        if (this.overlapParcelsActivated === true) {
           return "Show Selected Parcel Only"
         } else {
           return "Show All Parcels"
@@ -103,8 +110,8 @@
     },
     methods: {
       toggleParcelOverlap() {
-        console.log('toggleParcelOverlap is running', !this.overlapParcels);
-        this.$store.commit('setOverlapParcels', !this.overlapParcels);
+        // console.log('toggleParcelOverlap is running', !this.overlapParcelsActivated);
+        this.$store.commit('setOverlapParcelsActivated', !this.overlapParcelsActivated);
       },
       // takes the value of the valueQuantities computed property and returns
       // the appropriate grammatical number.
