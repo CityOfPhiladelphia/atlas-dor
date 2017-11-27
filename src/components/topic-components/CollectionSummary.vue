@@ -6,7 +6,7 @@
       {{ summary }}
     </h3>
     <a href="#/"
-       class="button"
+       class="button parcel-toggle-button"
        @click="toggleParcelOverlap"
        v-if="this.overlapParcelsEnabled === true && this.itemCount > 1"
     >
@@ -173,12 +173,13 @@
 
 <style scoped>
 
-  .parcel-summary {
+  /*.parcel-summary {
     display: inline-block;
-  }
+  }*/
 
   .parcel-toggle-button {
-    display: inline-block;
+    /*display: inline-block;*/
+    width: 300px;
   }
 
   a:visited {
