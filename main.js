@@ -539,17 +539,6 @@ Mapboard.default({
         }
       },
     },
-    // '311': {
-    //   type: 'esri-nearby',
-    //   url: 'https://192.168.103.143:6443/arcgis/rest/services/GSG/GIS311_365DAYS/MapServer/0',
-    //   options: {
-    //     // geometryServerUrl: 'http://192.168.103.143:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer/',
-    //     geometryServerUrl: '//gis.phila.gov/arcgis/rest/services/Geometry/GeometryServer/',
-    //     radius: 500,
-    //     units: 'feet',
-    //     calculateDistance: true,
-    //   },
-    // },
     '311Carto': {
       type: 'http-get-nearby',
       url: 'https://phl.carto.com/api/v2/sql',
@@ -614,7 +603,6 @@ Mapboard.default({
       url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/arcgis/rest/services/Vacant_Indicators_Points/FeatureServer/0',
       options: {
         geometryServerUrl: '//gis.phila.gov/arcgis/rest/services/Geometry/GeometryServer/',
-        // geometryServerUrl: 'http://192.168.103.143:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer/',
         // radius: 500,
         // units: 'feet',
         calculateDistance: true,
