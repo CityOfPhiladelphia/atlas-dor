@@ -12,8 +12,6 @@
 // console.log = console.info = console.debug = console.error = function () {};
 
 var GATEKEEPER_KEY = '8915b4f6dd7160c4895fc21a1ce736f7';
-// var BASE_CONFIG_URL = '//raw.githubusercontent.com/ajrothwell/atlas-dor-base-config/master/config.js';
-var BASE_CONFIG_URL = '//rawgit.com/rbrtmrtn/mapboard-base-config/d9892943dc4df94ba2b1e51dbe2aeb0b0bcd4aab/config.js';
 var BASE_CONFIG_URL = 'https://rawgit.com/ajrothwell/atlas-dor-base-config/1b7222caf8801f078dce957c531fc9bbc8fbe130/config.js';
 
 // var ZONING_CODE_MAP = {
